@@ -1,0 +1,75 @@
+<div id="newsletter" class="container" ng-controller="NewsletterController">
+    <div class="row">
+        <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+            <h1>{{title}}</h1>
+        </div>
+    </div>
+    <hr>
+    <form name="newsletterForm" ng-submit="submitNewsletter();" novalidate>
+        <div class="row">
+            <div class="col-sm-2">
+                <label>First Name</label>
+            </div>
+            <div class="col-sm-4">
+                <input class="form-control" name="firstname" type="text" ng-model="recipient.firstname" ng-minlength=2 ng-maxlength=20 required>
+            </div>
+            <div class="col-sm-6 error-container" ng-show="newsletterForm.firstname.$dirty && newsletterForm.firstname.$invalid && submitted">
+                <label style='color: red'>Error:</label>
+                <p class="error"  ng-show="newsletterForm.firstname.$error.required">
+                    Please input a first name</p>
+                <p class="error" ng-show="newsletterForm.firstname.$error.minlength">
+                    Your first name is required to be at least 2 characters</p>
+                <p class="error" ng-show="newsletterForm.firstname.$error.maxlength">
+                    Your first name cannot be longer than 20 characters</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">
+                <label>Last Name</label>
+            </div>
+            <div class="col-sm-4">
+                <input class="form-control" name="lastname" type="text" ng-model="recipient.lastname" ng-minlength=2 ng-maxlength=20 required>
+            </div>
+            <div class="col-sm-6 error-container" ng-show="newsletterForm.lastname.$dirty && newsletterForm.lastname.$invalid && submitted">
+                <label style='color: red'>Error:</label>
+                <p class="error"  ng-show="newsletterForm.lastname.$error.required">
+                    Please input a surname</p>
+                <p class="error" ng-show="newsletterForm.lastname.$error.minlength">
+                    Your surname is required to be at least 2 characters</p>
+                <p class="error" ng-show="newsletterForm.lastname.$error.maxlength">
+                    Your surname cannot be longer than 20 characters</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">
+                <label>Email</label>
+            </div>
+            <div class="col-sm-4">
+                <input class="form-control" name="email" type="email" ng-model="recipient.email" required>
+            </div>
+            <div class="col-sm-6 error-container" ng-show="newsletterForm.email.$dirty && newsletterForm.email.$invalid && submitted">
+                <label style='color: red'>Error:</label>
+                <p class="error"  ng-show="newsletterForm.email.$error.required">
+                    Please input an email address</p>
+                <p class="error" ng-show="newsletterForm.email.$error && !newsletterForm.email.$error.required">
+                    Please input a valid email address</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">
+                <label>Phone Number</label>
+            </div>
+            <div class="col-sm-4">
+                <input class="form-control" name="phone" type="text" pattern="[0-9]{11}" ng-model="recipient.phone" required>
+            </div>
+            <div class="col-sm-6 error-container" ng-show="newsletterForm.phone.$dirty && newsletterForm.phone.$invalid && submitted">
+                <label style='color: red'>Error:</label>
+                <p class="error"  ng-show="newsletterForm.phone.$error.required">
+                    Please input a phone number</p>
+                <p class="error" ng-show="newsletterForm.phone.$error && !newsletterForm.phone.$error.required">
+                    Please input a valid phone number</p>
+            </div>
+        </div>
+        <button type="button" class="btn btn-success">Subscribe</button>
+    </form>
+</div>

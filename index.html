@@ -1,0 +1,48 @@
+<!doctype html>
+<html ng-app="bandApp">
+    <head>
+        <title>Band Page</title>
+        <!-- include the bootstrap css -->
+        <link rel="stylesheet" type="text/css" href="css/vendor/bootstrap.min.css">
+        <link href="node_modules/angular-carousel/dist/angular-carousel.min.css" rel="stylesheet" type="text/css" />
+        <!-- include our vendor js -->
+        <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="js/vendor/angular.min.js"></script>
+        <script src="js/vendor/angular-route.min.js"></script>
+        <script src="node_modules/angular-touch/angular-touch.min.js"></script>
+        <script src="node_modules/angular-carousel/dist/angular-carousel.min.js"></script>
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+                <div class="nav navbar-header">
+                    <a class="navbar-brand" href="#/home">Band Website</a>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myCollapsingList">
+                        <span class="sr-only">Toggle Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="myCollapsingList">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#/home">Home</a></li>
+                        <li><a href="#/about">About the Band</a></li>
+                        <li><a href="#/music">Music</a></li>
+                        <li><a href="#/upcoming">Upcoming Events</a></li>
+                        <li><a href="#/availability">Check Availability</a></li>
+                        <li><a href="#/newsletter">Newsletter</a></li>
+                        <li><a href="#/contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div ng-view>
+        </div>
+    </body>
+    <script src="js/app.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/directive.js"></script>
+</html>
