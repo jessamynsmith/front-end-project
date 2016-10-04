@@ -5,41 +5,93 @@
         </div>
     </div>
     <hr>
-    <div id="albumCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
-        <ol class="carousel-indicators">
-            <li data-target="#albumCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#albumCarousel" data-slide-to="1"></li>
-            <li data-target="#albumCarousel" data-slide-to="2">
-        </ol>
-    
-        <div class="carousel-inner" role="listbox">
-            <div class="item active">
-                <img src="img/album.jpg" alt="Greatest Hits" width="400px" height="300px">
-                <div class="carousel-caption">
-                    <h4>Greatest Hits</h4>
-                </div>
-            </div>
-            <div class="item">
-                <img src="img/album2.jpg" alt="Best Of" width="400px" height="300px">
-                <div class="carousel-caption">
-                    <h4>Best Of</h4>
-                </div>
-            </div>
-            <div class="item">
-                <img src="img/cover.jpg" alt="Greatest Hits 2" width="400px" height="300px">
-                <div class="carousel-caption">
-                    <h4>Greatest Hits</h4>
-                </div>
-            </div>
-        </div>
+    <style type="text/css">
+        .carousel-left, .carousel-right {
+            border-radius:5px;
+            background-color:#ccc;
+            height:300px;
+        }
+        .carousel-main {
+            height:300px;
+            text-align:center;
+        }
+        .slide img {
+            display:none;
+            margin-left:auto;
+            margin-right:auto;
+            text-align:center;
+        }
+        ul.slides, ul.slides li {
+            display:inline-block;
+            list-style-type:none;
+            list-style:none;
+            margin-left:auto;
+            margin-right:auto;
+            text-align:center;
+        }
+        .active img {
+            display:inline-block;
+            height:400px;
+        }
+        a {
+            font-size:12px;
+            text-align:center;
+            margin-left:auto;
+            margin-right:auto;
+        }
+    </style>
+    <script type="text/javascript">
 
-        <a class="left carousel-control" href="#albumCarousel" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#albumCarousel" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
+        $(document).ready(function() {
+            $(".carousel-main").css("height", $(".active").css("height"));
+            $(".carousel-left").css("height", $(".carousel-main").css("height"));
+            $(".carousel-right").css("height", $(".carousel-main").css("height"));
+        });
+
+        function slideLeft() {
+            var totalSlides = $(".slide").length;
+            var $currentSlide = $(".active");
+            var activeIndex = parseInt(($currentSlide.attr("id").split("-"))[1]);
+            var newIndex = (activeIndex == (totalSlides - 1)) ? 0 : activeIndex + 1;
+            var $newSlide = $("#slide-" + newIndex);
+            $currentSlide.removeClass("active");
+            $newSlide.addClass("active");
+        };
+
+        function slideRight() {
+            var totalSlides = $(".slide").length;
+            var $currentSlide = $(".active");
+            var activeIndex = parseInt(($currentSlide.attr("id").split("-"))[1]);
+            var newIndex = activeIndex ? activeIndex - 1 : totalSlides - 1;
+            var $newSlide = $("#slide-" + newIndex);
+            $currentSlide.removeClass("active");
+            $newSlide.addClass("active");
+        };
+
+    </script>
+    <div class="row carousel">
+        <div class="col-sm-1 col-xs-1 col-md-1 col-lg-1 carousel-left" onclick="slideLeft();">
+        </div>
+        <div class="col-sm-10 col-xs-10 col-md-10 col-lg-10 carousel-main">
+            <ul class="carousel-slides">
+                <li class="slide active" id="slide-0" style="list-style-type:none;">
+                    <img src="img/album.jpg" width=400 height=400 />
+                </li>
+                <li class="slide" id="slide-1" style="list-style-type:none;">
+                    <img src="img/album2.jpg" width=400 height=400 />
+                </li>
+                <li class="slide" id="slide-2" style="list-style-type:none;">
+                    <img src="img/cover.jpg" width=400 height=400 />
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-1 col-xs-1 col-md-1 col-lg1 carousel-right" onclick="slideRight();">
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <a href="#/about">Enter site</a>
+        </div>
     </div>
 </div>
