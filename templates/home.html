@@ -34,7 +34,9 @@
             height:400px;
         }
         a {
-            font-size:12px;
+            font-size:16px;
+        }
+        .footer {
             text-align:center;
             margin-left:auto;
             margin-right:auto;
@@ -46,6 +48,7 @@
             $(".carousel-main").css("height", $(".active").css("height"));
             $(".carousel-left").css("height", $(".carousel-main").css("height"));
             $(".carousel-right").css("height", $(".carousel-main").css("height"));
+            timer = setTimeout(slideLeft, 5000);
         });
 
         function slideLeft() {
@@ -56,6 +59,8 @@
             var $newSlide = $("#slide-" + newIndex);
             $currentSlide.removeClass("active");
             $newSlide.addClass("active");
+            clearTimeout(timer);
+            timer = setTimeout(repeatSlide, 5000);
         };
 
         function slideRight() {
@@ -66,7 +71,16 @@
             var $newSlide = $("#slide-" + newIndex);
             $currentSlide.removeClass("active");
             $newSlide.addClass("active");
+            clearTimeout(timer);
+            timer = setTimeout(repeatSlide, 5000);
         };
+
+        var timer;
+
+        function repeatSlide() {
+            slideLeft();
+            timer = setTimeout(repeatSlide, 5000);
+        }
 
     </script>
     <div class="row carousel">
@@ -90,7 +104,7 @@
     </div>
     <hr>
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
             <a href="#/about">Enter site</a>
         </div>
     </div>

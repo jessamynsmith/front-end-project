@@ -8,6 +8,26 @@ angular.module('bandControllers',[])
     })
     .controller('AboutController', function($scope) {
         $scope.title ="About the Band";
+        $scope.mike = {
+            name: "Mike",
+            description: "Robert Michael Nesmith (born December 30, 1942) is an American musician, songwriter, actor, producer, novelist, businessman, and philanthropist, best known as a member of the pop rock band the Monkees and co-star of the TV series The Monkees (1966–1968).",
+            img: "img/md.jpg"
+        };
+        $scope.micky = {
+            name: "Micky",
+            description: "George Michael \"Micky\" Dolenz, Jr. (born March 8, 1945) is an American actor, musician, television director, radio personality and theater director, best known as the drummer and principal lead singer of the 1960s pop/rock band the Monkees.",
+            img: "img/mn.jpg"
+        };
+        $scope.davy = {
+            name: "Davy",
+            description: "David Thomas \"Davy\" Jones (30 December 1945 – 29 February 2012) was an English singer-songwriter, musician, actor and businessman best known as a member of the band The Monkees, and for starring in the TV series of the same name. ",
+            img: "img/dj.jpg"
+        };
+        $scope.peter = {
+            name: "Peter",
+            description: "Peter Tork (born Peter Halsten Thorkelson, February 13, 1942) is an American musician and actor, best known as the keyboardist and bass guitarist of the Monkees.",
+            img: "img/pt.jpg"
+        };
     })
     .controller('MusicController', function($scope) {
         $scope.title ="Music";

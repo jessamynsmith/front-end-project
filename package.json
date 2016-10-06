@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "angular-carousel": "^1.0.1",
-    "angular-touch": "^1.5.8"
+    "angular-touch": "^1.5.8",
+    "fullcalendar": "^3.0.1"
   }
 }

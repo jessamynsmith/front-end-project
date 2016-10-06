@@ -1,5 +1,5 @@
 #newsletter label {
-    width 200px;
+    width: 200px;
 }
 
 div.event-container {
@@ -7,4 +7,10 @@ div.event-container {
     border-radius: 5px;
     margin: 10px;
     padding: 10px;
+}
+
+div.band-member {
+	margin:5px;
+	border: 1px solid black;
+	border-radius: 5px;
 }
